@@ -1,0 +1,153 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./cardiff/css/cardiff.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="./cardiff/js/util.js" charset="utf-8"></script>
+  <script src="./cardiff/js/car.js" charset="utf-8"></script>
+  <script src="./cardiff/js/cardiff.js" charset="utf-8"></script>
+  <script src="./cardiff/js/cardiff-ui.js" charset="utf-8"></script>
+</head>
+<script>
+
+  let car = null;
+  let cardiff = new CarDiff();
+  let secondLineFixed = false;
+
+  $(document).ready(function () {
+
+    document.getElementById('fileCarDiff').addEventListener('change', handleFileSelect, false);
+
+  });
+
+  function handleFileSelect(evt) {
+
+    var files = evt.target.files;
+
+    for (var i = 0, file; file = files[i]; i++) {
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+
+        var text = reader.result;
+        try {
+
+          car = cardiff.parse(text);
+          draw(car);
+
+        } catch (e) {
+          console.log(e);
+          alert(e);
+        }
+      }
+
+      reader.readAsText(file, "UTF-8");
+    }
+  }
+
+  function draw(car) {
+
+    $('#trimsView').html(cardiff.draw(car));
+
+    //add click event to trim
+    $(".btn-trim").on("click", function () {
+      event.stopPropagation();
+      var trimName = $(this).attr('trimName');
+      var trim = car.trims.get(trimName);
+      if (trim == null) {
+        alert("not found trim - " + trimName);
+        return;
+      }
+      trim.checked = !trim.checked;
+      draw(car);
+      return;
+    });
+
+    //add click event to option
+    $(".btn-opt").on("click", function () {
+      event.stopPropagation();
+
+      var trimName = $(this).attr('trimName');
+      var optionName = $(this).attr('optionName');
+
+      var trim = car.trims.get(trimName);
+      if (trim == null) {
+        alert("not found trim - " + trimName);
+        return;
+      }
+
+      var choice = trim.choices.get(optionName);
+      if (choice == null) {
+        alert("not found option - " + optionName);
+        return;
+      }
+
+      ;
+
+      try {
+        choice.checked = cardiff.valid(trim, choice);
+        draw(car);
+      } catch (e) {
+        console.log(e);
+        alert(e);
+      }
+
+      return;
+    });
+
+    //add double-click to option line
+    $(".opt-tr").on("dblclick", function () {
+      event.stopPropagation();
+
+      var tr = $(".opt-tr");
+      var td = $(".opt-td");
+
+      if (secondLineFixed) {
+        tr.removeClass("table-primary");
+        td.removeClass("table-header-fix-th2");
+      } else {
+        tr.addClass("table-primary");
+        td.addClass("table-header-fix-th2");
+      }
+
+      secondLineFixed = !secondLineFixed;
+
+    });
+  }
+
+
+</script>
+
+<body>
+  <div class="card text-center">
+    <div class="card-header">
+      <div class="mx-auto" style="width: 300px;">
+        <form>
+          <div class="form-group">
+            <input type="file" accept=".trims" class="form-control-file" id="fileCarDiff">
+          </div>
+        </form>
+        <small>CarDiff, Copyright © Bitaminec 2019.<br>Licensed under the Apache License, Version 2.0</small>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="text-center h-50" id="trimsView">
+    <h5 class="mt-5">Bitaminc CarDiff</h5>
+    <p>Car Trims Viwer</p>
+    <a href="https://github.com/Bitaminc" class="btn btn-primary">GitHub</a>
+  </div>
+</body>
+
+</html>

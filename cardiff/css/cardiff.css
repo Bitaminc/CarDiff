@@ -1,0 +1,45 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAoCAYAAAC7HLUcAAAFOElEQVR42u1aW4hVVRg2COyhCIsuUD6YRAWC0IuY0oOCRCio9BJBROiLYRLdURjmoVAYcBhmzlzPnKdAeomyyyRexoewhxBLyKJoAhnIUsNLKOlw/D75lyzXrH325ewZzvF8H/zss/daZ+21/vV///r/tfaCBYIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgdBQqlcoTw8PDhyH/Q+pDQ0N/Q56PlbXsINC5pZC/2MlQMJhLkK/xe0X4PzzvtToT7TBZY2NjD6CvJ2xsW1qpb9Vq9T706W3IKWcwdv0D0jM4OPjYHNvAOujmcsL8/wzZndQH6tLqnqCO3XPUfxjPfwra4zvWxcrakiDewC5A1qYRxDNCtrdUBEnH6OjoGvRnupH+jSwfzDdBArmCOu/X6/W7MhJkK57NQI6E5GpU1soEuc2oqQjcP+sx/dMcRthyBGlFwDiWQV+nzcCmcP/KwMDAvSzjFc82Q34wY+qda4KERg7yPoJnr9oqMmOyJ2Ob/ah7dWRkZFOesrYhSMRDTIgg5aGvr28hdLXfdHucYUesHh0ViYN6O+ebIH4fUPYhVzJcz6M/q9LapL24kCpPWdsRBMp4x1aQjxKI05u2TDvF0yPh/ksqmd7IynidxvVjxuIJS/+3uL4I+dEmiZ5sCvKS1VsBmWQYYO+cRr9fC8OB2MR4xjGB30/j+oVrx5LKHWE7RFdX192o86b1Y8beew7yCcb5TAYDWgn5N6vB+V69iA45vvHx8Ydwv88b3/4sBPEiin1hNOG3HwllQzsYTCprO4LQALjEm+JnebgiBMmQ73xGzxohyHXPCMPc6CuPGLMSwhwEuRRrh4RkzOy3U6vV7mFfY33KutqizW1W96g/5hJyxiQdch7Px/qZhSBBvV8RAj7aaQRJUvg/GNTLJEwjghQNsWhsjHPtPfSoKyMTQkP8DjHrc/Rk9IR4dsBT/C9MdtnHSqWyiB7WntdyEOTmO7gN6drB76o9/97lBtZOt61i/N+7HIOFIU+i7l562gwrSG+ov6LIo0M3vjwhViNnGhLkTg6x6iky6a8iZRHEU1oN//kP1xciE3cgDHOY4DHRgxwKJ5xtWFsTOQgy6x0gyVMWZv0Jgiz2xwi5xvCrqN7LJEhGHc7SkwjSZA5iocRGDOY3m8yRZglibW6xFWDaj6XDLdgk5Qehw23e3SZgOeRsOOFpOUj4jv7+/gfx/GRgEA1ztvkgSFk6FEFKSNIDb31LgUUIYtuaUykrVS6CxCbVjalZgsTGk9WY5ioHKVOHBQji6p2k8xBBglCD3gqx/pIiBLFtzYMuZ+D/2a6bEOdRW50gni6aXUHcLtYFtLM6x9ZwaTrMQxDLsaqRSEIEscMixtzHUef+NILQgDhxfhuM4RnLW+izPCnkaHWC+DkIV4Emz0EO5jkHKVuHRc5BuBHAA2QRxPbcaQQYzBnbtelulIMwF2BOYHX7/KQwSG67GUfbOx7H/S5vC7KlCRLsYnGbeXuRXSxrZ62tIO7sZltwkr7Bdp5unqSXrcM0XdpJ+q3TfDuDeiPpnKWjd7EwoM/dhCQRxDee2DlIrMwddLUTQexju8kGusr8ASfyu/Xh+UTsOyjIW0n6LarDyIZHo/m/GDs07XSCXLFdnNeznIN4Oyw9nmdkG9/QI5qX3WExvCs7xvONdgmxgnG+55+k27jG8+YmdsLdY1/v+l/znuLKwPIg3ClFh2kEscPT39k3vw8dRRBBEARBEARBEARBEARBEARBEARBEARBEARBEIQOww2fisGdguFPNAAAAABJRU5ErkJggg==');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right bottom;
+}
+
+.table-header-fix {
+  overflow-y: auto;
+}
+
+.table-header-fix-th {
+  position: sticky;
+  top: -1px;
+  height: 120px;
+}
+
+.table-header-fix-th2 {
+  position: sticky;
+  top: 119px;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  width: 33%;
+}
+
+a {
+  font: 20pt bold;
+}
+
+.btn-group-sm>.btn, .btn-ssm {
+  padding: .15rem .15rem;
+  font-size: .777rem;
+  line-height: 1.2;
+  border-radius: .2rem;
+}
