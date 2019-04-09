@@ -123,7 +123,7 @@ function itemValue(item, trim) {
             var activeLinked = false;
             for (var [linkedOptionName, linkedChoice] of trim.choices) {
                 if( !linkedChoice.checked) continue;
-                if( linkedChoice.optionName == choiceItem.linked ){
+                if( choiceItem.linked.indexOf( linkedChoice.optionName ) >=0 ){
                     activeLinked = true;
                     break;
                 }
