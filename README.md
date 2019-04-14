@@ -1,7 +1,7 @@
 # CarDiff
 자동차 트림별 옵션비교 유틸
 
-<img src="https://github.com/Bitaminc/CarDiff/blob/master/cardiff_granduer.png?raw=true">
+<img src="https://github.com/Bitaminc/CarDiff/blob/master/screen_capture.png?raw=true">
 
 ## 설치 및 실행
 
