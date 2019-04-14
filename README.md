@@ -1,6 +1,8 @@
 # CarDiff
 자동차 트림별 옵션비교 유틸
 
+<img src="https://github.com/Bitaminc/CarDiff/blob/master/cardiff_granduer.png?raw=true">
+
 ## 설치 및 실행
 
 본 유틸리티는 CHROME 브라우저에서 실행되며, 브라우저에서 HTML파일을 오픈해서 사용합니다.
